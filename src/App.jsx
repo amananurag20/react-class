@@ -1,22 +1,25 @@
-import { useState } from "react";
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navigation from "./components/common/Navigation";
+import TalkingAvatar from "./components/avatars/TalkingAvatar";
+import TextToSpeechAvatar from "./components/avatars/TextToSpeechAvatar";
+import AdvancedAvatar from "./components/avatars/AdvancedAvatar";
+import DIDVideoGenerator from "./components/avatars/DIDVideoGenerator";
 
-function App(){
-   
-  const [count,setCount]=useState(1000);//[1000,f]
-
-  function handleClick(){
-    setCount(count+1000);//2000
-    console.log(count);    //2000
-  }
-
+const App = () => {
   return (
-     <>
-      <h1>dsa</h1>
-      <h1>{count}</h1>
-
-      <button onClick={handleClick}> increase a</button>
-     </>
-  )
-}
+    <BrowserRouter>
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+        <Navigation />
+        <Routes>
+          <Route path="/" element={<TalkingAvatar />} />
+          <Route path="/speech" element={<TextToSpeechAvatar />} />
+          <Route path="/advanced" element={<AdvancedAvatar />} />
+          <Route path="/video" element={<DIDVideoGenerator />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
+  );
+};
 
 export default App;

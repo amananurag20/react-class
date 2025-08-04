@@ -1,0 +1,11 @@
+/* Minimal custom CSS - Most styling now uses Tailwind CSS */
+
+/* Legacy styles for MediaPipe face tracking (these need canvas-specific styling) */
+.avatar-face {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Any other legacy styles that can't be easily converted to Tailwind can go here */
